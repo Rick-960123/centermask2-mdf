@@ -27,7 +27,10 @@ from centermask.evaluation import (
 from detectron2.modeling import GeneralizedRCNNWithTTA
 from detectron2.checkpoint import DetectionCheckpointer
 from centermask.config import get_cfg
-
+from detectron2.data.datasets import register_coco_instances
+register_coco_instances("coco_mdf_1024_train", {}, "datasets/coco_mdf_1024/annotations/instances_train2020.json", "datasets/coco_mdf_1024/train2020")
+register_coco_instances("coco_mdf_1024_val", {}, "datasets/coco_mdf_1024/annotations/instances_val2020.json", "datasets/coco_mdf_1024/val2020")
+register_coco_instances("coco_mdf_1024_test", {}, "datasets/coco_mdf_1024/annotations/instances_test2020.json", "datasets/coco_mdf_1024/test2020")
 
 class Trainer(DefaultTrainer):
     """
@@ -146,6 +149,7 @@ def main(args):
 
 if __name__ == "__main__":
     args = default_argument_parser().parse_args()
+    args.config_file="./configs/centermask/centermask_lite_Mv2_FPN_ms_4x.yaml"
     print("Command Line Args:", args)
     launch(
         main,
