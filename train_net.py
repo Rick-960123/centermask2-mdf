@@ -149,7 +149,7 @@ def main(args):
 
 if __name__ == "__main__":
     args = default_argument_parser().parse_args()
-    args.config_file="./configs/centermask/centermask_lite_Mv2_FPN_ms_4x.yaml"
+   ## args.config_file="./configs/centermask/centermask_lite_Mv2_FPN_ms_4x.yaml"
     print("Command Line Args:", args)
     launch(
         main,

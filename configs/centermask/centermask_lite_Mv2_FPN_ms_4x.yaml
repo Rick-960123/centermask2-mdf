@@ -1,5 +1,5 @@
 MODEL:
-  WEIGHTS: "output/centermask/CenterMask-Lite-MNv2-ms-4x/model_0109999.pth"
+  WEIGHTS: "output/centermask/CenterMask-Lite-MNv2-ms-4x/model_0099999.pth"
   META_ARCHITECTURE: "GeneralizedRCNN"
   BACKBONE:
     NAME: "build_fcos_mobilenetv2_fpn_backbone"
@@ -33,10 +33,10 @@ DATASETS:
   TEST: ("coco_mdf_1024_val",)
 SOLVER:
   CHECKPOINT_PERIOD: 10000
-  IMS_PER_BATCH: 4
+  IMS_PER_BATCH: 2
   BASE_LR: 0.0025  # Note that RetinaNet uses a different default learning rate
-  STEPS: (200000, 240000)
-  MAX_ITER: 250000
+  STEPS: (800000, 90000)
+  MAX_ITER: 100000
 INPUT:
   MIN_SIZE_TRAIN: (580, 600)
   MAX_SIZE_TRAIN: 1000

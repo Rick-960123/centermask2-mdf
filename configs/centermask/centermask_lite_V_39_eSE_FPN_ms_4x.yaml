@@ -1,9 +1,20 @@
 _BASE_: "Base-CenterMask-Lite-VoVNet.yaml"
 MODEL:
-  WEIGHTS: "https://www.dropbox.com/s/q98pypf96rhtd8y/vovnet39_ese_detectron2.pth?dl=1"
+  ##WEIGHTS: "https://www.dropbox.com/s/q98pypf96rhtd8y/vovnet39_ese_detectron2.pth?dl=1"
   VOVNET:
     CONV_BODY : "V-39-eSE"
+DATASETS:
+  TRAIN: ("coco_mdf_1024_train",)
+  TEST: ("coco_mdf_1024_val",)
 SOLVER:
-  STEPS: (300000, 340000)
-  MAX_ITER: 360000
-OUTPUT_DIR: "output/centermask/CenterMask-Lite-V-39-ms-4x"
+  CHECKPOINT_PERIOD: 10000
+  IMS_PER_BATCH: 2
+  BASE_LR: 0.0025  # Note that RetinaNet uses a different default learning rate
+  STEPS: (120000, 140000)
+  MAX_ITER: 150000
+INPUT:
+  MIN_SIZE_TRAIN: (580, 600)
+  MAX_SIZE_TRAIN: 1000
+  MIN_SIZE_TEST: 600
+  MAX_SIZE_TEST: 1000
+OUTPUT_DIR: "output/centermask/CenterMask-V-39-ms-3x"
