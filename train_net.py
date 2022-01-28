@@ -4,7 +4,6 @@ import logging
 import os
 from collections import OrderedDict
 import torch
-
 import detectron2.utils.comm as comm
 from detectron2.data import MetadataCatalog
 from detectron2.engine import DefaultTrainer, default_argument_parser, default_setup, hooks, launch
@@ -37,8 +36,6 @@ class Trainer(DefaultTrainer):
     This is the same Trainer except that we rewrite the
     `build_train_loader` method.
     """
-
-
 
     @classmethod
     def build_evaluator(cls, cfg, dataset_name, output_folder=None):

@@ -40,6 +40,7 @@ dist/
 # project dirs
 /datasets/coco
 /datasets/lvis
+/datasets/coco_mdf_1024
 /datasets/cityscapes
 /models
 /debug
